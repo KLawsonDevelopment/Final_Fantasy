@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'django_extenstions',
+    'django_extensions',
     'Final_Fantasy_App',
 ]
 
