@@ -37,6 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
+    'django_extenstions',
+    'Final_Fantasy_App',
 ]
 
 MIDDLEWARE = [
@@ -75,8 +78,11 @@ WSGI_APPLICATION = 'Final_Fantasy_Project.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'finalfantasy',
+        'USER': 'ozmaneku',
+        'PASSWORD': 'Nightwing13',
+        'HOST': 'localhost'
     }
 }
 
