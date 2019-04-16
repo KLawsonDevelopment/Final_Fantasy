@@ -3,7 +3,7 @@ from django.db import models
 # Create your models here.
 
 
-class Character(models.model):
+class Character(models.Model):
     Name = models.CharField(max_length=255)
     Portrait = models.CharField(max_length=500)
     Avatar = models.CharField(max_length=500)
@@ -12,7 +12,7 @@ class Character(models.model):
         return self.name
 
 
-class Gear_Details(models.model):
+class Gear_Details(models.Model):
     Body = models.CharField(max_length=255)
     Bracelets = models.CharField(max_length=255)
     Earrings = models.CharField(max_length=255)
@@ -31,10 +31,10 @@ class Gear_Details(models.model):
     def __str__(self):
         return self.Character
 
-class GearPiece(models.model):
+class GearPiece(models.Model):
     Creator = models.CharField(max_length=255)
     Dye = models.CharField(max_length=255)
-    ID = models.IntegerField(max_length=255)
+    ID = models.IntegerField
     Materia = models.CharField(max_length=255)
     Mirage = models.CharField(max_length=255)
     Gear = models.ManyToManyField(Gear_Details)
@@ -42,7 +42,7 @@ class GearPiece(models.model):
     def __str__(self):
         return self.Gear
 
-class WantedGear(models.model):
+class WantedGear(models.Model):
     Body = models.CharField(max_length=255)
     Bracelets = models.CharField(max_length=255)
     Earrings = models.CharField(max_length=255)
@@ -56,7 +56,7 @@ class WantedGear(models.model):
     Ring2 = models.CharField(max_length=255)
     SoulCrystal = models.CharField(max_length=255)
     Waist = models.CharField(max_length=255)
-    Character = models.ForeignKey(Character, on_delete=models.CASCADE, related_name='gear_details')
+    Character = models.ForeignKey(Character, on_delete=models.CASCADE, related_name='wanted_gear')
 
     def __str__(self):
         return self.Character
