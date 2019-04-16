@@ -1,0 +1,1 @@
+web: gunicorn Final_Fantasy_Project.wsgi --log-file -
