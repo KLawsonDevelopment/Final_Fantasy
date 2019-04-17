@@ -23,4 +23,4 @@ class CharacterSerializer(serializers.ModelSerializer):
     wanted = WantedSerializer(many=True, read_only=True)
     class Meta:
         model = Character
-        fields = ('id', 'Name', 'Portrait', 'Avatar')
+        fields = ('id', 'Name', 'Portrait', 'Avatar', 'gear', 'wanted')

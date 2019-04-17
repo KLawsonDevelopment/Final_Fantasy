@@ -1,26 +1,21 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom'
 import './App.css';
+import Characters from './components/Characters';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      <Router>
+        <div className="App">
+          <img src="https://cdn.discordapp.com/attachments/404735741936009216/567364863605866530/ffxiv_04152019_170228_055.png" alt="FC logo" /><h1>Legacy Needs List</h1>
+          <div><Link to='/'>Characters</Link></div>
+        </div>
+
+        <Switch>
+          <Route exact path='' component={Characters}></Route>
+        </Switch>
+      </Router>
     );
   }
 }
