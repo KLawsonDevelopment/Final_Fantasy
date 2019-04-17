@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom'
 import './App.css';
 import Characters from './components/Characters';
+import CharacterGear from './components/CharacterGear';
 
 class App extends Component {
   render() {
@@ -13,7 +14,8 @@ class App extends Component {
         </div>
 
         <Switch>
-          <Route exact path='' component={Characters}></Route>
+          <Route exact path='/' component={Characters}></Route>
+          <Route path='/character/:id' component={CharacterGear}></Route>
         </Switch>
       </Router>
     );

@@ -4,7 +4,7 @@ from . import views
 
 router = routers.DefaultRouter()
 router.register('characters', views.CharacterView)
-router.register('details', views.DetailView)
+# router.register('details', views.DetailView)
 router.register('pieces', views.PieceView)
 router.register('wanted', views.WantedView)
 
