@@ -61,7 +61,7 @@ class GearPiece(models.Model):
         return self.Creator
 
 class WantedGear(models.Model):
-    Name = models.CharField(max_length=255, default='name')
+    Name = models.CharField(max_length=255, default='nameCaster')
     Body = models.CharField(max_length=255)
     Bracelets = models.CharField(max_length=255)
     Earrings = models.CharField(max_length=255)
