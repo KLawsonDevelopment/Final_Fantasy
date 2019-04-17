@@ -34,6 +34,7 @@ class Gear_Details(models.Model):
 
 class GearPiece(models.Model):
     Creator = models.CharField(max_length=255)
+    Icon = models.CharField(max_length=255, default='http://i.imgur.com/SwBRFdO.png')
     Dye = models.CharField(max_length=255)
     ID = models.AutoField(primary_key = True)
     Materia = models.CharField(max_length=255)

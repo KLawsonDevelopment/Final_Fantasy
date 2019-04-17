@@ -34,8 +34,8 @@ class Characters extends Component {
                             <button onClick={this.showPortrait}>Shrink</button>
                             {this.state.characters.map(character => (
                                 <div key={character.id}>
-                                    {character.Name}
-                                    <img src={character.Portrait} alt={character.Name}/>
+                                    <Link to={`character/${character.id}`}>{character.Name}
+                                    <img src={character.Portrait} alt={character.Name}/></Link>
                                 </div>
                             ))}
                         </div>
@@ -43,7 +43,7 @@ class Characters extends Component {
                             <button onClick={this.showPortrait}>Expand</button>
                             {this.state.characters.map(character => (
                                 <div key={character.id}>
-                                    {character.Name}
+                                    <Link to={`character/${character.id}`}>{character.Name}</Link>
                                 </div>
                             ))}
                         </div>}

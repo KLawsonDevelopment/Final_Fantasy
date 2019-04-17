@@ -10,7 +10,7 @@ class WantedSerializer(serializers.ModelSerializer):
 class PieceSerializer(serializers.ModelSerializer):
     class Meta:
         model = GearPiece
-        fields = ('Creator', 'Dye', 'ID', 'Materia', 'Mirage')
+        fields = ('Creator', 'Dye', 'ID', 'Materia', 'Mirage', 'Icon')
 
 class DetailSerializer(serializers.ModelSerializer):
     pieces = PieceSerializer(many=True, read_only=True)
