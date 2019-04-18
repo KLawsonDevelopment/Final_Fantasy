@@ -58,20 +58,29 @@ class Character(models.Model):
 class GearPiece(models.Model):
     GEAR_TYPE_CHOICES = (
         ('body', 'Body'),
-        ('bracelets', 'Bracelets')
+        ('bracelets', 'Bracelets'),
+        ('earrings', 'Earrings'),
+        ('feet', 'Feet'),
+        ('hands', 'Hands'),
+        ('legs', 'Legs'),
+        ('mainhand', 'Main Hand'),
+        ('necklace', 'Necklace'),
+        ('ring1', 'Ring 1'),
+        ('ring2', 'Ring 2'),
+        ('waist', 'Waist')
     )
+    Name = models.CharField(max_length=255, default='name')
     Creator = models.CharField(max_length=255)
     Icon = models.CharField(max_length=255, default='http://i.imgur.com/SwBRFdO.png')
     Dye = models.CharField(max_length=255)
     ID = models.AutoField(primary_key = True)
     Materia = models.CharField(max_length=255)
     Mirage = models.CharField(max_length=255)
-    # Gear = models.ForeignKey(Gear_Details, on_delete=models.CASCADE, related_name='GearPieces')
     Character = models.ForeignKey(Character, on_delete=models.CASCADE, related_name='GearPieces')
     gearType = models.CharField(max_length=255, choices=GEAR_TYPE_CHOICES)
 
     def __str__(self):
-        return self.Creator
+        return self.Name
 
 class WantedGear(models.Model):
     GEAR_TYPE_CHOICES = (
