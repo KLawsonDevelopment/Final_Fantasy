@@ -170,6 +170,17 @@ class CharacterGear extends Component {
         }
     }
 
+    deleteWanted = async (wantedID) => {
+        try {
+            Axios.delete(`/api/v1/wanted/${wantedID}/`)
+            const characterId = this.props.match.params.id
+            this.getCharacter(characterId)
+        }
+        catch (err) {
+            console.log(err)
+        }
+    }
+
 
     render() {
         if (this.state.redirectToHome === true) {
@@ -230,7 +241,7 @@ class CharacterGear extends Component {
                                     <div>
                                         {this.state.wantedGear.map(wanted => (
                                             <div key={wanted.ID}>
-                                                <img src={wanted.Icon} alt={wanted.Id} />
+                                                <img src={wanted.Icon} alt={wanted.Id} /><button onClick={() => this.deleteWanted(wanted.ID)}>Delete</button>
                                             </div>
                                         ))}
                                     </div>
