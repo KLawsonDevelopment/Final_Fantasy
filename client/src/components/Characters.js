@@ -64,8 +64,8 @@ class Characters extends Component {
         }
     }
 
-    importCharacter = async () =>{
-        try{
+    importCharacter = async () => {
+        try {
             let importedValue = document.getElementById("import").value
             let res = await axios.get(`https://xivapi.com/character/search?name=${importedValue}&server=Malboro`)
             let importedCharacter = await axios.get(`https://xivapi.com/character/${res.data.Results[0].ID}`)
@@ -97,8 +97,8 @@ class Characters extends Component {
 
     render() {
         return (
-            <div>
-                
+            <div className='charactersPage'>
+
                 {
                     this.state.newCharacterForm
                         ? <div>
@@ -132,25 +132,39 @@ class Characters extends Component {
                         : <div>{
                             this.state.portraitDisplayed
                                 ? <div>
-                                    <button onClick={this.newCharacterForm}>New Character</button>
-                                    <button onClick={this.showPortrait}>Shrink</button>
+                                    <div>
+                                        <button onClick={this.newCharacterForm}>New Character</button>
+                                    </div>
+                                    <div>
+                                        <button onClick={this.showPortrait}>Shrink</button>
+                                    </div>
                                     {this.state.characters.map(character => (
                                         <div key={character.id}>
-                                            <Link to={`character/${character.id}`}>{character.Name}
+                                            <Link to={`character/${character.id}`} className="characterLink">{character.Name}
                                                 <img src={character.Portrait} alt={character.Name} /></Link>
                                         </div>
                                     ))}
+                                    <div>
+                                        <button onClick={this.importCharacter}>Import</button>
+                                        <input type="text" id="import" />
+                                    </div>
                                 </div>
                                 : <div>
-                                    <button onClick={this.newCharacterForm}>New Character</button>
-                                    <button onClick={this.showPortrait}>Expand</button>
+                                    <div>
+                                        <button onClick={this.newCharacterForm}>New Character</button>
+                                    </div>
+                                    <div>
+                                        <button onClick={this.showPortrait}>Expand</button>
+                                    </div>
                                     {this.state.characters.map(character => (
                                         <div key={character.id}>
-                                            <Link to={`character/${character.id}`}>{character.Name}</Link>
+                                            <Link to={`character/${character.id}`} className="characterLink">{character.Name}</Link>
                                         </div>
                                     ))}
-                                    <button onClick={this.importCharacter}>Import</button>
-                                    <input type="text" id="import"/>
+                                    <div>
+                                        <button onClick={this.importCharacter}>Import</button>
+                                        <input type="text" id="import" />
+                                    </div>
                                 </div>
                         }</div>
                 }

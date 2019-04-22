@@ -10,7 +10,7 @@ class App extends Component {
       <Router>
         <div className="App">
           <img src="https://cdn.discordapp.com/attachments/404735741936009216/569946505847242759/ffxiv_04152019_170228_055.png" alt="FC logo" /><h1>Legacy Needs List</h1>
-          <div><Link to='/'>Characters</Link></div>
+          <div><Link to='/' className="characters">Characters</Link></div>
         </div>
 
         <Switch>
