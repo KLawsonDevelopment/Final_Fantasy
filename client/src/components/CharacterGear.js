@@ -32,7 +32,7 @@ class CharacterGear extends Component {
 
     getCharacter = async (characterId) => {
         try {
-            const res = await Axios.get(`/api/v1/characters/${characterId}`)
+            const res = await Axios.get(`/api/v1/characters/${characterId}/`)
             this.setState({
                 character: res.data,
                 gear: res.data.GearPieces,
@@ -77,7 +77,7 @@ class CharacterGear extends Component {
 
     deleteCharacter = async () => {
         try {
-            await Axios.delete(`/api/v1/characters/${this.props.match.params.id}`)
+            await Axios.delete(`/api/v1/characters/${this.props.match.params.id}/`)
             this.setState({ redirectToHome: true })
 
         }
@@ -124,18 +124,18 @@ class CharacterGear extends Component {
 
     importGear = async () => {
         try {
-            let res = await Axios.get(`https://xivapi.com/character/${this.state.character.characterId}`)
+            let res = await Axios.get(`https://xivapi.com/character/${this.state.character.characterId}/`)
 
             let GearSet = res.data.Character.GearSet.Gear
             for (const key in GearSet) {
                 if (GearSet.hasOwnProperty(key)) {
-                    let GearSetIconData = await Axios.get(`https://xivapi.com/item/${GearSet[key].ID}`)
+                    let GearSetIconData = await Axios.get(`https://xivapi.com/item/${GearSet[key].ID}/`)
                     let GearSetIcon = GearSetIconData.data.Icon
                     const Gear = [...this.state.gear]
                     this.setState({
                         newGear: {
                             Creator: GearSet[key].Creator,
-                            Icon: `https://xivapi.com/${GearSetIcon}`,
+                            Icon: `https://xivapi.com/${GearSetIcon}/`,
                             Dye: GearSet[key].Dye,
                             ID: GearSet[key].ID,
                             Mirage: GearSet[key].Mirage,
@@ -161,7 +161,7 @@ class CharacterGear extends Component {
         try {
             let arr1 = this.state.gear
             for (let i=0; i<arr1.length; i++) {
-                Axios.delete(`/api/v1/pieces/${arr1[i].ID}`)
+                Axios.delete(`/api/v1/pieces/${arr1[i].ID}/`)
             }
             this.setState({ gear: [] })
         }

@@ -21,7 +21,7 @@ class Characters extends Component {
 
     getCharacters = async () => {
         try {
-            const res = await axios.get('/api/v1/characters');
+            const res = await axios.get('/api/v1/characters/');
             this.setState({ characters: res.data })
         }
         catch (err) {
@@ -67,8 +67,8 @@ class Characters extends Component {
     importCharacter = async () =>{
         try{
             let importedValue = document.getElementById("import").value
-            let res = await axios.get(`https://xivapi.com/character/search?name=${importedValue}&server=Malboro`)
-            let importedCharacter = await axios.get(`https://xivapi.com/character/${res.data.Results[0].ID}`)
+            let res = await axios.get(`https://xivapi.com/character/search?name=${importedValue}&server=Malboro/`)
+            let importedCharacter = await axios.get(`https://xivapi.com/character/${res.data.Results[0].ID}/`)
             this.setState({
                 newCharacter: {
                     Name: importedCharacter.data.Character.Name,
