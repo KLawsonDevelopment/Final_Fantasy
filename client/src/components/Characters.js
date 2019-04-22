@@ -88,6 +88,7 @@ class Characters extends Component {
                     Avatar: '',
                 }
             })
+            document.getElementById('import').value= '';
         }
         catch (err) {
             console.log(err)
@@ -97,12 +98,12 @@ class Characters extends Component {
 
     render() {
         return (
-            <div className='charactersPage'>
+            <div className=''>
 
                 {
                     this.state.newCharacterForm
                         ? <div>
-                            <button onClick={this.newCharacterForm}>Reverse</button>
+                            <button onClick={this.newCharacterForm} class="btn btn-secondary">Reverse</button>
                             <form onSubmit={this.newCharacter}>
                                 <div>
                                     <label htmlFor="Name">Name:</label>
@@ -133,15 +134,15 @@ class Characters extends Component {
                             this.state.portraitDisplayed
                                 ? <div>
                                     <div>
-                                        <button onClick={this.newCharacterForm}>New Character</button>
+                                        <button onClick={this.newCharacterForm} className="btn btn-primary">New Character</button>
                                     </div>
                                     <div>
-                                        <button onClick={this.showPortrait}>Shrink</button>
+                                        <button onClick={this.showPortrait} className="btn btn-info">Shrink</button>
                                     </div>
                                     {this.state.characters.map(character => (
                                         <div key={character.id}>
-                                            <Link to={`character/${character.id}`} className="characterLink">{character.Name}
-                                                <img src={character.Portrait} alt={character.Name} /></Link>
+                                            <Link to={`character/${character.id}`} className="">{character.Name}
+                                                <img src={character.Portrait} alt={character.Name} className="img-thumbnail"/></Link>
                                         </div>
                                     ))}
                                     <div>
@@ -151,14 +152,14 @@ class Characters extends Component {
                                 </div>
                                 : <div>
                                     <div>
-                                        <button onClick={this.newCharacterForm}>New Character</button>
+                                        <button onClick={this.newCharacterForm} className="btn btn-primary">New Character</button>
                                     </div>
                                     <div>
-                                        <button onClick={this.showPortrait}>Expand</button>
+                                        <button onClick={this.showPortrait} className="btn btn-info">Expand</button>
                                     </div>
                                     {this.state.characters.map(character => (
                                         <div key={character.id}>
-                                            <Link to={`character/${character.id}`} className="characterLink">{character.Name}</Link>
+                                            <Link to={`character/${character.id}`} className="">{character.Name}</Link>
                                         </div>
                                     ))}
                                     <div>

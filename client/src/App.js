@@ -8,10 +8,10 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <div className="App">
+        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
           <img src="https://cdn.discordapp.com/attachments/404735741936009216/569946505847242759/ffxiv_04152019_170228_055.png" alt="FC logo" /><h1>Legacy Needs List</h1>
           <div><Link to='/' className="characters">Characters</Link></div>
-        </div>
+        </nav>
 
         <Switch>
           <Route exact path='/' component={Characters}></Route>
