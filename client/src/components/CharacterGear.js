@@ -160,7 +160,7 @@ class CharacterGear extends Component {
     deleteGear = async () => {
         try {
             let arr1 = this.state.gear
-            for (let i=0; i<arr1.length; i++) {
+            for (let i = 0; i < arr1.length; i++) {
                 Axios.delete(`/api/v1/pieces/${arr1[i].ID}/`)
             }
             this.setState({ gear: [] })
