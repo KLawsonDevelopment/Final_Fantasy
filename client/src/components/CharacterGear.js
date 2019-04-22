@@ -124,18 +124,18 @@ class CharacterGear extends Component {
 
     importGear = async () => {
         try {
-            let res = await Axios.get(`https://xivapi.com/character/${this.state.character.characterId}/`)
+            let res = await Axios.get(`https://xivapi.com/character/${this.state.character.characterId}`)
 
             let GearSet = res.data.Character.GearSet.Gear
             for (const key in GearSet) {
                 if (GearSet.hasOwnProperty(key)) {
-                    let GearSetIconData = await Axios.get(`https://xivapi.com/item/${GearSet[key].ID}/`)
+                    let GearSetIconData = await Axios.get(`https://xivapi.com/item/${GearSet[key].ID}`)
                     let GearSetIcon = GearSetIconData.data.Icon
                     const Gear = [...this.state.gear]
                     this.setState({
                         newGear: {
                             Creator: GearSet[key].Creator,
-                            Icon: `https://xivapi.com/${GearSetIcon}/`,
+                            Icon: `https://xivapi.com/${GearSetIcon}`,
                             Dye: GearSet[key].Dye,
                             ID: GearSet[key].ID,
                             Mirage: GearSet[key].Mirage,
