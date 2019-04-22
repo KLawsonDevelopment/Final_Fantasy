@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import Axios from 'axios';
 
-//Forcing a change for heroku
-
 class CharacterGear extends Component {
     state = {
         character: {
