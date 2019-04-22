@@ -7,3 +7,15 @@
   width: 20vw;
   height: auto;
 }
+
+.wrapper {
+  height: 100vh;
+  width: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+#footer {
+  position: fixed;
+  bottom: 0;
+}
