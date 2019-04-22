@@ -8,6 +8,7 @@ class Character(models.Model):
     Name = models.CharField(max_length=255)
     Portrait = models.CharField(max_length=500)
     Avatar = models.CharField(max_length=500)
+    characterId = models.CharField(max_length=500, default="3")
 
     def __str__(self):
         return self.Name
@@ -57,25 +58,27 @@ class Character(models.Model):
 
 class GearPiece(models.Model):
     GEAR_TYPE_CHOICES = (
-        ('body', 'Body'),
-        ('bracelets', 'Bracelets'),
-        ('earrings', 'Earrings'),
-        ('feet', 'Feet'),
-        ('hands', 'Hands'),
-        ('legs', 'Legs'),
-        ('mainhand', 'Main Hand'),
-        ('necklace', 'Necklace'),
-        ('ring1', 'Ring 1'),
-        ('ring2', 'Ring 2'),
-        ('waist', 'Waist')
+        ('Body', 'Body'),
+        ('Bracelets', 'Bracelets'),
+        ('Earrings', 'Earrings'),
+        ('Head', 'Head'),
+        ('Feet', 'Feet'),
+        ('Hands', 'Hands'),
+        ('Legs', 'Legs'),
+        ('MainHand', 'Main Hand'),
+        ('OffHand', 'Off Hand'),
+        ('Necklace', 'Necklace'),
+        ('Ring1', 'Ring 1'),
+        ('Ring2', 'Ring 2'),
+        ('SoulCrystal', 'Soul Crystal'),
+        ('Waist', 'Waist')
     )
     Name = models.CharField(max_length=255, default='name')
-    Creator = models.CharField(max_length=255)
+    Creator = models.CharField(max_length=255, null=True)
     Icon = models.CharField(max_length=255, default='http://i.imgur.com/SwBRFdO.png')
-    Dye = models.CharField(max_length=255)
+    Dye = models.CharField(max_length=255, null=True)
     ID = models.AutoField(primary_key = True)
-    Materia = models.CharField(max_length=255)
-    Mirage = models.CharField(max_length=255)
+    Mirage = models.CharField(max_length=255, null=True)
     Character = models.ForeignKey(Character, on_delete=models.CASCADE, related_name='GearPieces')
     gearType = models.CharField(max_length=255, choices=GEAR_TYPE_CHOICES)
 
@@ -84,13 +87,24 @@ class GearPiece(models.Model):
 
 class WantedGear(models.Model):
     GEAR_TYPE_CHOICES = (
-        ('body', 'Body'),
-        ('bracelets', 'Bracelets')
+        ('Body', 'Body'),
+        ('Bracelets', 'Bracelets'),
+        ('Earrings', 'Earrings'),
+        ('Head', 'Head'),
+        ('Feet', 'Feet'),
+        ('Hands', 'Hands'),
+        ('Legs', 'Legs'),
+        ('MainHand', 'Main Hand'),
+        ('OffHand', 'Off Hand'),
+        ('Necklace', 'Necklace'),
+        ('Ring1', 'Ring 1'),
+        ('Ring2', 'Ring 2'),
+        ('SoulCrystal', 'Soul Crystal'),
+        ('Waist', 'Waist')
     )
     Icon = models.CharField(max_length=255, default='http://i.imgur.com/SwBRFdO.png')
     Dye = models.CharField(max_length=255)
     ID = models.AutoField(primary_key = True)
-    Materia = models.CharField(max_length=255)
     Mirage = models.CharField(max_length=255)
     Character = models.ForeignKey(Character, on_delete=models.CASCADE, related_name='wantedgear')
     gearType = models.CharField(max_length=255, choices=GEAR_TYPE_CHOICES)

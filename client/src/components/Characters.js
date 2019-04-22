@@ -9,6 +9,7 @@ class Characters extends Component {
             Name: '',
             Portrait: '',
             Avatar: '',
+            characterId: ''
         },
         portraitDisplayed: false,
         newCharacterForm: false,
@@ -56,6 +57,36 @@ class Characters extends Component {
                     Avatar: '',
                 },
                 newCharacterForm: false
+            })
+        }
+        catch (err) {
+            console.log(err)
+        }
+    }
+
+    importCharacter = async () =>{
+        try{
+            let importedValue = document.getElementById("import").value
+            let res = await axios.get(`https://xivapi.com/character/search?name=${importedValue}&server=Malboro`)
+            let importedCharacter = await axios.get(`https://xivapi.com/character/${res.data.Results[0].ID}`)
+            this.setState({
+                newCharacter: {
+                    Name: importedCharacter.data.Character.Name,
+                    Portrait: importedCharacter.data.Character.Portrait,
+                    Avatar: importedCharacter.data.Character.Avatar,
+                    characterId: importedCharacter.data.Character.ID
+                }
+            })
+            res = await axios.post('/api/v1/characters/', this.state.newCharacter)
+            const allCharacters = [...this.state.characters]
+            allCharacters.push(res.data)
+            this.setState({
+                characters: allCharacters,
+                newCharacter: {
+                    newCharacter: '',
+                    Portrait: '',
+                    Avatar: '',
+                }
             })
         }
         catch (err) {
@@ -118,6 +149,8 @@ class Characters extends Component {
                                             <Link to={`character/${character.id}`}>{character.Name}</Link>
                                         </div>
                                     ))}
+                                    <button onClick={this.importCharacter}>Import</button>
+                                    <input type="text" id="import"/>
                                 </div>
                         }</div>
                 }
