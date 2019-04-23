@@ -12,7 +12,7 @@ https://trello.com/b/tZVNBuBJ/final-fantasy-14-equipment
 
 #wireframe
 
-<img src="Pictures/Project4.jpg" width=700px height=700px>
+<img src="Pictures/Project4.jpg" width=900px height=700px>
 
 #Example Imports
 
