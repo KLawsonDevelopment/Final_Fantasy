@@ -228,7 +228,7 @@ class CharacterGear extends Component {
                                 <img src={this.state.character.Avatar} alt={this.state.character.Name} className="img-thumbnail" id="avatar" />
                             </div>
                             <div className="btn-group" role='group' aria-label="Import/Delete">
-                                <button onClick={this.importGear} className='btn btn-info'>Import</button>
+                                <button onClick={this.importGear} className='btn btn-info'>Import Current Gear</button>
                                 <button onClick={this.deleteGear} className='btn btn-danger'>Delete Current Gear</button>
                             </div>
                             <div class="d-flex">

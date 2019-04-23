@@ -34,7 +34,7 @@ Django
 
 #Version 2-3-4-???
 
-I want to keep working on this as I go to get it to the vision I originally had. I want to be able to search multiple servers for characters, pull entire Free Company character lists, search for the items within the XIV database and give more detailed stats. I also want to be able to pull recpies on how to make said items. I want to stylize more as I go along, but the rest of this comes first.
+I want to keep working on this as I go to get it to the vision I originally had. I want to be able to search multiple servers for characters, pull entire Free Company character lists, search for the items within the XIV database and give more detailed stats. I also want to be able to pull recpies on how to make said items. I want to stylize more as I go along, but the rest of this comes first. I also want to add the ability to disable the import Weapons button if the character was not imported.
 
 #Shoutouts
 
