@@ -17,6 +17,7 @@ class Characters extends Component {
 
     componentDidMount() {
         this.getCharacters()
+        console.log("See you later, WDI20. Bang.")
     }
 
     getCharacters = async () => {
