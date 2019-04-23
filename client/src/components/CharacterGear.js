@@ -188,31 +188,58 @@ class CharacterGear extends Component {
         }
         return (
             <div>
-                <button onClick={this.showEdit}>Edit</button>
-                <button onClick={this.deleteCharacter}>Delete</button>
+                <button onClick={this.showEdit} className="btn btn-primary">Edit</button>
+                <button onClick={this.deleteCharacter} className="btn btn-danger">Delete</button>
                 {
                     this.state.displayEditForm
-                        ? <form onSubmit={this.updateCharacter}><label htmlFor="Name">Name:</label>
-                            <input type='text'
-                                id='Name'
-                                name='Name'
-                                value={this.state.character.Name}
-                                onChange={this.handleChangeCharacter} />
+                        ? <form onSubmit={this.updateCharacter}>
+                            <div>
+                                <label htmlFor="Name">Name:</label>
+                                <input type='text'
+                                    id='Name'
+                                    name='Name'
+                                    value={this.state.character.Name}
+                                    onChange={this.handleChangeCharacter} />
+                            </div>
+                            <div>
+                                <label htmlFor="Avatar">Avatar:</label>
+                                <input type="text"
+                                    id="Avatar"
+                                    name="Avatar"
+                                    value={this.state.character.Avatar}
+                                    onChange={this.handleChangeCharacter} />
+                            </div>
+                            <div>
+                                <label htmlFor="Portrait">Portrait:</label>
+                                <input type="text"
+                                    id="Portrait"
+                                    name="Portrait"
+                                    value={this.state.character.Portrait}
+                                    onChange={this.handleChangeCharacter} />
+                            </div>
                             <button>Submit</button>
                         </form>
                         : <div>
                             <h1>Current Gear</h1>
-                            {this.state.character.Name}
-                            <img src={this.state.character.Avatar} alt={this.state.character.Name} />
-                            <button onClick={this.importGear}>Import</button>
-                            <button onClick={this.deleteGear}>Delete Current Gear</button>
-                            {this.state.gear.map(gear => (
-                                <div key={gear.ID}>
-                                    <img src={gear.Icon} alt={gear.ID} />
-                                </div>
-                            ))}
+                            <div>
+                                {this.state.character.Name}
+                            </div>
+                            <div>
+                                <img src={this.state.character.Avatar} alt={this.state.character.Name} className="img-thumbnail" id="avatar" />
+                            </div>
+                            <div className="btn-group" role='group' aria-label="Import/Delete">
+                                <button onClick={this.importGear} className='btn btn-info'>Import</button>
+                                <button onClick={this.deleteGear} className='btn btn-danger'>Delete Current Gear</button>
+                            </div>
+                            <div class="d-flex">
+                                {this.state.gear.map(gear => (
+                                    <div key={gear.ID}>
+                                        <img src={gear.Icon} alt={gear.ID} />
+                                    </div>
+                                ))}
+                            </div>
                             <h2>Wanted Gear</h2>
-                            <button onClick={this.newGearForm}>New</button>
+                            <button onClick={this.newGearForm} className='btn btn-dark'>New</button>
                             {
                                 this.state.newGearForm
                                     ? <form onSubmit={this.newGear}>
@@ -241,7 +268,7 @@ class CharacterGear extends Component {
                                     <div>
                                         {this.state.wantedGear.map(wanted => (
                                             <div key={wanted.ID}>
-                                                <img src={wanted.Icon} alt={wanted.Id} /><button onClick={() => this.deleteWanted(wanted.ID)}>Delete</button>
+                                                <img src={wanted.Icon} alt={wanted.Id} className="img-thumbnail" id='wanted'/><button onClick={() => this.deleteWanted(wanted.ID)} className='btn btn-danger'>Delete</button>
                                             </div>
                                         ))}
                                     </div>
