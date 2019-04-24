@@ -8,7 +8,7 @@ class Character(models.Model):
     Name = models.CharField(max_length=255)
     Portrait = models.CharField(max_length=500)
     Avatar = models.CharField(max_length=500)
-    characterId = models.CharField(max_length=500, default="3")
+    characterId = models.CharField(max_length=500, default='3')
 
     def __str__(self):
         return self.Name

@@ -231,7 +231,7 @@ class CharacterGear extends Component {
                                 <button onClick={this.importGear} className='btn btn-info'>Import Current Gear</button>
                                 <button onClick={this.deleteGear} className='btn btn-danger'>Delete Current Gear</button>
                             </div>
-                            <div class="d-flex">
+                            <div className="d-flex">
                                 {this.state.gear.map(gear => (
                                     <div key={gear.ID}>
                                         <img src={gear.Icon} alt={gear.ID} />

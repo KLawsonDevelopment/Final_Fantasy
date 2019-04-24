@@ -104,7 +104,7 @@ class Characters extends Component {
                 {
                     this.state.newCharacterForm
                         ? <div>
-                            <button onClick={this.newCharacterForm} class="btn btn-secondary">Reverse</button>
+                            <button onClick={this.newCharacterForm} className="btn btn-secondary">Reverse</button>
                             <form onSubmit={this.newCharacter}>
                                 <div>
                                     <label htmlFor="Name">Name:</label>
@@ -125,6 +125,13 @@ class Characters extends Component {
                                     <input type='text'
                                         id='Avatar'
                                         name='Avatar'
+                                        onChange={this.handleChange} />
+                                </div>
+                                <div>
+                                    <label htmlFor='characterId'>Character ID:</label>
+                                    <input type='text'
+                                        id='characterId'
+                                        name='characterId'
                                         onChange={this.handleChange} />
                                 </div>
                                 <button className="btn btn-danger">Submit</button>
@@ -149,7 +156,7 @@ class Characters extends Component {
                                         ))}
                                         <div className='input-group mb-3' id='footer'>
                                             <button onClick={this.importCharacter} className="btn btn-dark">Import</button>
-                                            <input type="text" id="import" className='form-control' placeholder="Character Name"/>
+                                            <input type="text" id="import" className='form-control' placeholder="Character Name" />
                                         </div>
                                     </div>
                                 </div>
